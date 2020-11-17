@@ -1,0 +1,80 @@
+@import '../../../assets/scss/variables';
+
+@mixin phone {
+  @media (max-width: 599px) { @content; }
+}
+@mixin tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+
+.container {
+  padding-top: 28px;
+
+  .item{
+    padding-top: 12px;
+    border-bottom: solid 1px $warm_grey;
+
+    a {
+      text-decoration: none;
+      font-weight: bolder;
+      font-size: large;
+      color: $link_color;
+
+      span {
+        text-decoration: none;
+        font-size: large;
+        font-weight: normal;
+        color: $link_color;
+      }
+    }
+
+    span {
+      font-size: small;
+      color: $slate_grey_two;
+    }
+
+    h5 {
+      padding-top: 12px;
+    }
+  }
+
+  .user-info {
+
+    text-align: center;
+    max-height: 100px;
+    flex: 1;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+      max-width: 150px;
+    }
+
+    h3 {
+      font-weight: bolder;
+    }
+
+  }
+
+  .tabs {
+    padding-left: 48px !important;
+
+  }
+
+
+}
+
+/* ink bar */
+::ng-deep .mat-ink-bar {
+  background-color: $rusty_orange !important;
+}

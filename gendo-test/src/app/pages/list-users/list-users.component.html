@@ -1,0 +1,40 @@
+<div class="container">
+
+  <div class="row filters">
+    <div class="col-md-12 col-xs-12">
+      <label for="address">Busque por um nome de usuário</label>
+      <input type="text" class="form-control" name="login" id="login" [(ngModel)]="login" (change)="filterProfileByLogin()" />
+    </div>
+  </div>
+
+  <div class="row profiles-grid">
+    <div class="col-md-3 col-xs-6" *ngFor="let profile of profiles  | paginate: { itemsPerPage: itemsPage, currentPage: page, totalItems: qtdProfiles, id: 'profiles'}">
+      <a [routerLink]="['/profiles/user', profile.login]">
+        <div class="card-profile">
+          <img [src]="profile.avatar_url">
+          <h5>{{ profile.login }}</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="footer-list">
+      <div class="row">
+        <div class="col-md-12">
+          <pagination-controls id="profiles" class="profile-pagination animated fadeIn" maxSize="15" directionLinks="true"
+            responsive="true" autoHide="true" previousLabel="Anterior" nextLabel="Próximo"
+            (pageChange)="choosePage($event)">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .profile-pagination /deep/ .ngx-pagination .current {
+    background: #E36209;
+  }
+</style>

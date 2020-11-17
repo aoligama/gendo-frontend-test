@@ -1,0 +1,10 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <mat-toolbar [routerLink]="['/profiles']" color="primary">
+      <fa-icon [icon]="faCodeBranch"></fa-icon> &nbsp;
+      <span>Github <small>profiles</small></span>
+    </mat-toolbar>
+    <router-outlet>
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

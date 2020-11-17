@@ -1,0 +1,113 @@
+@import '../../../assets/scss/variables';
+
+.filters {
+  padding-top: 20px;
+
+  input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px warm_grey;
+    background: transparent;
+  }
+}
+
+.toggle-button {
+  text-align: end;
+  margin-top: 30px;
+
+  a {
+    cursor: pointer;
+  }
+
+  i {
+    color: $slate_grey_two;
+    padding-right: 12px;
+    transition: 0.2s;
+    font-size: 18px;
+
+    &:hover {
+      color: $rusty_orange;
+    }
+  }
+
+  .active {
+    color: $rusty_orange;
+  }
+}
+
+.profiles-grid {
+  margin-top: 30px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .card-profile {
+    border-radius: 8px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+    background-color: #fff;
+    color: #000;
+    max-height: 100px;
+    transition: 0.2s;
+    flex: 1;
+    align-items: center;
+
+    &:hover {
+      box-shadow: 0px 10px 30px rgba(56, 50, 152, 0.1);
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 50px;
+      max-height: 50px;
+      border-radius: 50px;
+    }
+
+    .row{
+      align-self: center;
+      align-items: center;
+      flex: 1;
+      flex-direction: row;
+      padding-left: 30%;
+    }
+
+    h5 {
+      margin-top: 10px;
+      font-weight: bolder;
+    }
+
+    span {
+      display: block;
+      font-size: 20px;
+      color: #000;
+
+      &:last-of-type {
+        margin-top: 0px;
+        padding: 0;
+      }
+    }
+
+    i {
+      color: #000;
+      text-decoration: none;
+      padding-right: 8px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0px;
+      padding: 0px;
+      display: flex;
+      justify-content: center;
+
+      li {
+        padding-left: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div class="container" v-if="profile && repos && starred">
+  <div class="row">
+    <div class="col-md-2 col-sm-12 user-info">
+      <img [src]="profile[0].avatar_url">
+      <h3>{{profile[0].name}}</h3>
+      <span>{{profile[0].bio}}</span>
+    </div>
+    <div class="col-md-10 col-sm-12 tabs">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Repos">
+          <div class="row item" *ngFor="let repo of repos">
+            <div class="col-md-12">
+              <div class="content-item">
+                <a>{{ repo.name }}</a>
+                <br />
+                <span>{{ repo.description }}</span>
+                <h5><fa-icon [icon]="faCodeBranch"></fa-icon> {{ repo.stargazers_count }} &nbsp;&nbsp; <fa-icon [icon]="faStar"></fa-icon> {{ repo.forks_count }}</h5>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Starred">
+          <div class="row item" *ngFor="let star of starred">
+            <div class="col-md-12">
+              <div class="content-item">
+                <a><span>{{star.owner.login}}</span> / {{ star.name }}</a>
+                <br />
+                <span>{{ star.description }}</span>
+                <h5><fa-icon [icon]="faCodeBranch"></fa-icon> {{ star.stargazers_count }} &nbsp;&nbsp; <fa-icon [icon]="faStar"></fa-icon> {{ star.forks_count }}</h5>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+<style>
+
+</style>
