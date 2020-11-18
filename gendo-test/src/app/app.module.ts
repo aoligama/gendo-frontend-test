@@ -17,7 +17,8 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule }   from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     NgxPaginationModule,
     FormsModule,
     FontAwesomeModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

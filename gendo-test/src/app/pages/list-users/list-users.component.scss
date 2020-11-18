@@ -12,6 +12,16 @@
   }
 }
 
+.loader {
+  margin-top: 20px;
+  justify-items: center;
+  flex: 1;
+  align-self: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: row;
+}
+
 .toggle-button {
   text-align: end;
   margin-top: 30px;

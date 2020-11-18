@@ -15,6 +15,7 @@ export class ListUsersComponent implements OnInit {
   itemsPage: number = 12;
   qtdProfiles: number = 0;
   login: string = '';
+  loading: boolean = true;
 
   constructor(
     public title: Title,
@@ -29,17 +30,21 @@ export class ListUsersComponent implements OnInit {
   }
 
   getProfiles() {
+    this.loading = true;
     this.service.getProfiles()
     .subscribe(res => {
       this.profiles = res
+      this.loading = false;
     })
   }
 
   filterProfileByLogin() {
+    this.loading = true;
     if(this.login){
       this.service.getProfileByLogin(this.login)
       .subscribe(res => {
         this.profiles = [res]
+        this.loading = false;
       })
     } else {
       this.getProfiles()

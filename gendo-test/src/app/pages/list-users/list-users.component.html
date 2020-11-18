@@ -2,12 +2,16 @@
 
   <div class="row filters">
     <div class="col-md-12 col-xs-12">
-      <label for="address">Busque por um nome de usuário</label>
-      <input type="text" class="form-control" name="login" id="login" [(ngModel)]="login" (change)="filterProfileByLogin()" />
+      <label for="address">Busque por um nome de usuário (ou selecione algum da lista):</label>
+      <input type="text" placeholder="Usuário" class="form-control" name="login" id="login" [(ngModel)]="login" (change)="filterProfileByLogin()" />
     </div>
   </div>
 
-  <div class="row profiles-grid">
+  <div class="row loader offset-md-6">
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  </div>
+
+  <div class="row profiles-grid" *ngIf="profiles && !loading">
     <div class="col-md-3 col-xs-6" *ngFor="let profile of profiles  | paginate: { itemsPerPage: itemsPage, currentPage: page, totalItems: qtdProfiles, id: 'profiles'}">
       <a [routerLink]="['/profiles/user', profile.login]">
         <div class="card-profile">
@@ -18,7 +22,7 @@
     </div>
   </div>
 
-  <div class="pagination">
+  <div class="pagination offset-md-4">
     <div class="footer-list">
       <div class="row">
         <div class="col-md-12">

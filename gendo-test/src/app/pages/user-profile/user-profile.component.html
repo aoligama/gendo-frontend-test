@@ -1,40 +1,60 @@
-<div class="container" v-if="profile && repos && starred">
-  <div class="row">
-    <div class="col-md-2 col-sm-12 user-info">
-      <img [src]="profile[0].avatar_url">
-      <h3>{{profile[0].name}}</h3>
-      <span>{{profile[0].bio}}</span>
+<div class="container" >
+
+  <div class="row loader offset-md-6">
+    <mat-spinner *ngIf="profile && repos && starred && loading"></mat-spinner>
+  </div>
+
+  <div *ngIf="profile && repos && starred && !loading">
+    <div class="user-info-mobile">
+
+      <div>
+        <img [src]="profile[0].avatar_url">
+      </div>
+
+      <div class="user">
+        <div class="user-data">
+          <strong>{{ profile[0].name }}</strong>
+          <br />
+          <small><i class="icon-phone"></i> {{ profile[0].bio }}</small>
+        </div>
+      </div>
+
     </div>
-    <div class="col-md-10 col-sm-12 tabs">
-      <mat-tab-group mat-align-tabs="start">
-        <mat-tab label="Repos">
-          <div class="row item" *ngFor="let repo of repos">
-            <div class="col-md-12">
-              <div class="content-item">
-                <a>{{ repo.name }}</a>
-                <br />
-                <span>{{ repo.description }}</span>
-                <h5><fa-icon [icon]="faCodeBranch"></fa-icon> {{ repo.stargazers_count }} &nbsp;&nbsp; <fa-icon [icon]="faStar"></fa-icon> {{ repo.forks_count }}</h5>
+
+    <div class="row">
+      <div class="col-md-2 col-sm-12 user-info-desktop">
+        <img [src]="profile[0].avatar_url">
+        <h3>{{profile[0].name}}</h3>
+        <span>{{profile[0].bio}}</span>
+      </div>
+      <div class="col-md-10 col-sm-12 tabs">
+        <mat-tab-group mat-align-tabs="start">
+          <mat-tab label="Repos">
+            <div class="row item" *ngFor="let repo of repos">
+              <div class="col-md-12">
+                <div class="content-item">
+                  <a>{{ repo.name }}</a>
+                  <br />
+                  <span>{{ repo.description }}</span>
+                  <h5><fa-icon [icon]="faCodeBranch"></fa-icon> {{ repo.stargazers_count }} &nbsp;&nbsp; <fa-icon [icon]="faStar"></fa-icon> {{ repo.forks_count }}</h5>
+                </div>
               </div>
             </div>
-          </div>
-        </mat-tab>
-        <mat-tab label="Starred">
-          <div class="row item" *ngFor="let star of starred">
-            <div class="col-md-12">
-              <div class="content-item">
-                <a><span>{{star.owner.login}}</span> / {{ star.name }}</a>
-                <br />
-                <span>{{ star.description }}</span>
-                <h5><fa-icon [icon]="faCodeBranch"></fa-icon> {{ star.stargazers_count }} &nbsp;&nbsp; <fa-icon [icon]="faStar"></fa-icon> {{ star.forks_count }}</h5>
+          </mat-tab>
+          <mat-tab label="Starred">
+            <div class="row item" *ngFor="let star of starred">
+              <div class="col-md-12">
+                <div class="content-item">
+                  <a><span>{{star.owner.login}}</span> / {{ star.name }}</a>
+                  <br />
+                  <span>{{ star.description }}</span>
+                  <h5><fa-icon [icon]="faCodeBranch"></fa-icon> {{ star.stargazers_count }} &nbsp;&nbsp; <fa-icon [icon]="faStar"></fa-icon> {{ star.forks_count }}</h5>
+                </div>
               </div>
             </div>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
     </div>
   </div>
 </div>
-<style>
-
-</style>

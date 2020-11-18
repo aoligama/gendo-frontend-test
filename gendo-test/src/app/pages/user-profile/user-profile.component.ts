@@ -16,6 +16,7 @@ export class UserProfileComponent implements OnInit {
   starred: any = []
   faCodeBranch = faCodeBranch;
   faStar = faStar;
+  loading: boolean = true;
 
   constructor(
     public title: Title,
@@ -37,25 +38,29 @@ export class UserProfileComponent implements OnInit {
   }
 
   getProfile(login){
+    this.loading = true;
     this.service.getProfileByLogin(login)
     .subscribe(res => {
       this.profile = [res]
+      this.loading = false;
     })
   }
 
   getRepos(login){
+    this.loading = true;
     this.service.getRepos(login)
     .subscribe(res => {
       this.repos = res
-      console.log(res)
+      this.loading = false;
     })
   }
 
   getStarred(login){
+    this.loading = true;
     this.service.getStarred(login)
     .subscribe(res => {
       this.starred = res
-      console.log(res)
+      this.loading = false;
     })
   }
 
